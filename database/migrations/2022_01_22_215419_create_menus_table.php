@@ -1,0 +1,44 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
+
+class CreateMenusTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('menus', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('name');
+            $table->string('slug');
+            $table->string('route')->nullable();
+            $table->string('icon')->nullable();
+            $table->string('permission')->nullable();
+            $table->boolean('collapse')->default(false);
+            $table->string('group')->default('base');
+            $table->string('sub_menu')->nullable();
+            $table->integer('order')->nullable()->default(0);
+
+            $table->timestamps();
+        });
+
+        DB::unprepared(file_get_contents(database_path('seeders/jsons/menus.sql')));
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('menus');
+    }
+}

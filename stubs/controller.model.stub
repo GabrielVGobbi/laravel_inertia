@@ -1,0 +1,113 @@
+<?php
+
+namespace {{ namespace }};
+
+use {{ namespacedModel }};
+use {{ rootNamespace }}Http\Controllers\Controller;
+use {{ namespacedRequests }}
+
+class {{ class }} extends Controller
+{
+    protected $repository;
+
+    public function __construct({{ model }} ${{ modelVariable }}s)
+    {
+        $this->repository = ${{ modelVariable }}s;
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        ${{ modelVariable }}s = {{ model }}::all();
+
+        return view('admin.{{ modelVariable }}s.index', [
+            '{{ modelVariable }}s'=>${{ modelVariable }}s
+        ]);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(StoreUpdate{{ model }} $request)
+    {
+        $columns = $request->all();
+
+        $this->repository->create($columns);
+
+        return redirect()
+            ->route('{{ modelVariable }}s.index')
+            ->with('message', 'Criado com sucesso');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\{{ model }}  $identify
+     * @return \Illuminate\Http\Response
+     */
+    public function show(int $identify)
+    {
+        if (!${{ modelVariable }} = $this->repository->where('id', $identify)->first()) {
+            return redirect()
+                ->route('{{ modelVariable }}s.index')
+                ->with('message', 'Registro não encontrado!');
+        }
+
+        return view('admin.{{ modelVariable }}s.show', [
+            '{{ modelVariable }}' => ${{ modelVariable }},
+        ]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\{{ model }}  $identify
+     * @return \Illuminate\Http\Response
+     */
+    public function update(StoreUpdate{{ model }} $request, int $identify)
+    {
+        $columns = $request->all();
+
+        if (!${{ modelVariable }} = $this->repository->where('id', $identify)->first()) {
+            return redirect()
+                ->route('{{ modelVariable }}s.index')
+                ->with('message', 'Registro não encontrado!');
+        }
+
+        ${{ modelVariable }}->update($columns);
+
+        return redirect()
+            ->back()
+            ->with('message', 'Atualizado com sucesso');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        if (!${{ modelVariable }} = $this->repository->where('id', $id)->first()) {
+            return redirect()
+                ->route('{{ modelVariable }}s.index')
+                ->with('message', 'Registro ({{ model }}e) não encontrado!');
+        }
+
+        ${{ modelVariable }}->delete();
+
+        return redirect()
+            ->route('{{ modelVariable }}s.index')
+            ->with('message', 'Deletado com sucesso');
+    }
+
+}
