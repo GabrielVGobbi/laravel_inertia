@@ -11,15 +11,6 @@ const mix = require('laravel-mix');
  |
  */
 
-mix
-    .js('resources/assets/painel/js/vendor.js', 'public/panel/js')
-    //.vue()
-    .sass('resources/assets/painel/sass/app.scss', 'public/panel/css')
-
-    .scripts([
-        'resources/assets/painel/js/painel.js',
-        'resources/assets/painel/js/libs/bootstrap-table/bootstrap-table.js',
-    ], 'public/panel/js/painel.js')
-
-    .sourceMaps()
-    .version();
+mix.js('resources/assets/painel/js/app.js', 'public/js').vue()
+    .sass('resources/assets/painel/sass/app.scss', 'public/css')
+    .sourceMaps();
