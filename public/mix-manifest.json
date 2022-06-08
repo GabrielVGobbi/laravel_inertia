@@ -1,5 +1,4 @@
 {
-    "/panel/js/vendor.js": "/panel/js/vendor.js?id=612ae2ce555eba23042eb2501e9c497b",
-    "/panel/css/app.css": "/panel/css/app.css?id=1852c2d09429307a47dbe797aa732985",
-    "/panel/js/painel.js": "/panel/js/painel.js?id=9c9b00fd2d434245294363804c913c6d"
+    "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css"
 }
