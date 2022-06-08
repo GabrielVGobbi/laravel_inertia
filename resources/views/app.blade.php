@@ -11,7 +11,7 @@
     <meta ref="js-base_url_api" content="{{ env('APP_URL_API') }}">
     <meta ref="url" content="{{ _url() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ 'Laravel Inertia' }}</title>
 
     <link href="{{ _mix('/css/app.css') }}" rel="stylesheet" />
     <script src="{{ _mix('/js/app.js') }}" defer></script>
