@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +14,8 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Auth::routes();
 
-Route::name('api.')->prefix('panel/')->middleware('auth:web')->group(function () {
-    Route::name('table.')->prefix('tables/')->group(function () {
-        Route::get('users', [App\Http\Controllers\Api\TablesApiController::class, 'users'])->name('users');
-        Route::get('permissions', [App\Http\Controllers\Api\TablesApiController::class, 'permissions'])->name('permissions');
-    });
+Route::prefix('painel')->middleware(['auth', 'can:admin-painel'])->group(function () {
+    Route::get('/', [App\Http\Controllers\Painel\HomeController::class, 'index'])->name('painel');
 });

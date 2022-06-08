@@ -11,6 +11,6 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/painel/js/app.js', 'public/js').vue()
-    .sass('resources/assets/painel/sass/app.scss', 'public/css')
+mix.js('resources/assets/web/js/app.js', 'public/js').vue()
+    .sass('resources/assets/web/sass/app.scss', 'public/css')
     .sourceMaps();

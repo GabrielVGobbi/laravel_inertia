@@ -14,18 +14,5 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Auth::routes();
-
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/about', [App\Http\Controllers\HomeController::class, 'about'])->name('about');
-
-Route::prefix('painel')->middleware(['auth', 'can:admin-painel'])->group(function () {
-    Route::get('/', [App\Http\Controllers\Painel\HomeController::class, 'index'])->name('painel');
-
-    Route::get('/scroll', [App\Http\Controllers\Painel\ACL\RolesController::class, 'scroll'])->name('scroll');
-});
-
-Route::prefix('v2')->middleware('auth:web')->group(function () {
-    Route::get('roles', [App\Http\Controllers\Painel\ACL\RolesController::class, 'roles'])->name('roles.all');
-});
