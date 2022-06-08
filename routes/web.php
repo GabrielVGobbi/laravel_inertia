@@ -17,9 +17,8 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/about', [App\Http\Controllers\HomeController::class, 'about'])->name('about');
 
 Route::prefix('painel')->middleware(['auth', 'can:admin-painel'])->group(function () {
     Route::get('/', [App\Http\Controllers\Painel\HomeController::class, 'index'])->name('painel');
