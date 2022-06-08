@@ -11,26 +11,16 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Larave Init
+## About Laravel + Inertia Vue JS
 
-pre-configured application with users, roles and permissions
+pre-configured application with users, roles and permissions and inertia config vue js 
+
 
 ### Composer
 
 -   **[laravel-sanctum]()**
 -   **[laravel/telescope](https://laravel.com/docs/9.x/telescope/)**
 -   **[laravel-debugbar](https://github.com/barryvdh/laravel-debugbar/)**
--   **[laravel-debugbar](https://github.com/barryvdh/laravel-debugbar/)**
-
-### Composer que você pode instalar
-
--   **[laravel-model-caching](https://github.com/GeneaLabs/laravel-model-caching)** // cache eloquent laravel
--   **[laravel-backup](https://spatie.be/docs/laravel-backup/v8/introduction)** // backup do laravel
 
 ### NPM
 
--   **[jquery](https://www.npmjs.com/package/jquery)**
--   **[toastr](https://www.npmjs.com/package/toastr)**
--   **[bootstrap/table](https://bootstrap-table.com/docs/getting-started/download)**
--   **[tableexport/jquery](https://www.npmjs.com/package/tableexport.jquery.plugin)**
--   **[select2](https://www.npmjs.com/package/select2)**
